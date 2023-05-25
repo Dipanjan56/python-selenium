@@ -5,6 +5,7 @@ from selenium.common import NoSuchElementException, TimeoutException
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.chrome.options import Options as ChromeOptions
 
 
 def wait_for_element_to_be_visible(driver, locator_name: str, locator_value: str, time_in_seconds: int):
@@ -48,8 +49,10 @@ def wait_for_element_to_be_visible(driver, locator_name: str, locator_value: str
         print(f"Exception Type: {type(e).__name__} | Detailed Exception: {e}")
     return element
 
+chrome_options = ChromeOptions()
+chrome_options.headless = False
 
-driver = webdriver.Chrome()
+driver = webdriver.Chrome(options=chrome_options)
 driver.implicitly_wait(5)
 
 driver.get('https://www.saucedemo.com/')

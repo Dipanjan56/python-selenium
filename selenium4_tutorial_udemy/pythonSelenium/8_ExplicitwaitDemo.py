@@ -15,7 +15,9 @@ driver = webdriver.Chrome(service=service_obj)
 driver.implicitly_wait(2)
 # 5 seconds is max time out.. 2 seconds (3 seconds save)
 driver.get("https://rahulshettyacademy.com/seleniumPractise/#/")
-driver.find_element(By.CSS_SELECTOR,".search-keyword").send_keys("ber")
+search_element = WebDriverWait(driver, 5).until(expected_conditions.visibility_of_element_located((By.CSS_SELECTOR, ".search-keyword")))
+search_element.send_keys('ber')
+# driver.find_element(By.CSS_SELECTOR,".search-keyword").send_keys("ber")
 time.sleep(4)
 
 results = driver.find_elements(By.XPATH, "//div[@class='products']/div")#list[]
