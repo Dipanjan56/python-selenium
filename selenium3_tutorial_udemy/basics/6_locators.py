@@ -41,7 +41,7 @@ paste this code -> $x("//input[@id='identifierId']")
 if we paste like $x("//*") here * means any tag in the page
 
 #------
- now lets say there are two elements using this xpath no mattre how many attributes we concatenate
+ now lets say there are two elements using this xpath no matter how many attributes we concatenate
  then we can solve it like these:
  1. using indexes -> (//input[@id='identifierId'][@name='identifier'])[0]
  2. using parent sibling approach
@@ -70,7 +70,7 @@ For Dynamic element: when a element keeps on changing everytime page loads
     it will give us all the preceding sibling, if we want just the above sibling
     //div[@class='aXBtI Wic03c']/div[3]/preceding-sibling::div[1]
                                 or
-    //div[@class='aXBtI Wic03c']/div[3]/following-sibling::div[@jsname='Xnnbs'] -> for particular sibling
+    //div[@class='aXBtI Wic03c']/div[3]/preceding-sibling::div[@jsname='Xnnbs'] -> for particular sibling
     
     3. if we want to go to below sibling from another child [following sibling] ->
     it will give us all the preceding sibling, if we want just the below sibling
