@@ -1,6 +1,10 @@
 """Locators"""
 
 """
+
+doc: https://www.selenium.dev/documentation/webdriver/elements/locators/
+
+
 Types of locators:
 1. id
 2. name
@@ -12,7 +16,8 @@ Types of locators:
 8. partialLinkText
 """
 
-"""Best tool to use: ChroPath & SelectorsHub"""
+"""Best tool to use: 
+"""
 
 """
 Xpath: there are 3 types -> absolute xpath, relative xpath, partial xpath

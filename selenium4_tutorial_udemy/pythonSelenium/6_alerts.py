@@ -4,6 +4,10 @@ from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 #-- Chrome
 from selenium.webdriver.common.by import By
+
+"""
+doc: https://www.selenium.dev/documentation/webdriver/interactions/alerts/
+"""
 name = "Rahul"
 service_obj = Service("/Users/rahulshetty/documents/chromedriver")
 driver = webdriver.Chrome(service=service_obj)
