@@ -62,3 +62,23 @@ def test_explicit_options(driver):
     wait.until(lambda d : revealed.send_keys("Displayed") or True)
 
     assert revealed.get_property("value") == "Displayed"
+
+
+def wait_for_element_to_be_visible(driver, element, timeout: int):
+    try:
+        wait = WebDriverWait(driver, timeout)
+        wait.until(lambda d: element.is_displayed())
+    except NoSuchElementException as e:
+        print(f'element not found, Exception Type: {type(e).__name__}')
+
+def advanced_wait_for_element_to_be_visible(driver, element, timeout: int):
+    try:
+        errors = [NoSuchElementException, ElementNotInteractableException]
+        wait = WebDriverWait(driver, timeout, poll_frequency=.2, ignored_exceptions=errors)
+        wait.until(lambda d: element.is_displayed() or True)
+    except NoSuchElementException as e:
+        print(f'element not found, Exception Type: {type(e).__name__}')
+
+def wait_for_element_to_be_enabled(driver, element, timeout: int):
+    wait = WebDriverWait(driver, timeout)
+    wait.until(lambda  d: element.is_enabled())
