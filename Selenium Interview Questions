@@ -1,0 +1,219 @@
+Link: https://docs.google.com/document/d/1JIRCdsLnuJBpNs64D_c1bfk5BFBjsCOx2RleiaLd9G0/edit
+
+Here are 100 Selenium interview questions and their answers, covering various topics like Selenium basics, WebDriver, Selenium Grid, locators, waits, and more.
+
+1-20: General Selenium Questions
+
+	1.	What is Selenium?
+	•	Selenium is an open-source tool for automating web browsers, supporting multiple browsers and programming languages.
+	2.	What are the different components of Selenium?
+	•	Selenium IDE, Selenium WebDriver, Selenium Grid, Selenium RC (now deprecated).
+	3.	What is Selenium WebDriver?
+	•	WebDriver is a tool that provides a programming interface to interact with and control browsers.
+	4.	What is the difference between Selenium 2 and Selenium 3?
+	•	Selenium 3 removed support for Selenium RC and introduced improved support for WebDriver, mobile automation, and newer browsers.
+	5.	What are locators in Selenium?
+	•	Locators are used to find elements on a webpage. Common locators are ID, Name, ClassName, XPath, CSS Selector, Tag Name, Link Text, and Partial Link Text.
+	6.	What is the Page Object Model (POM)?
+	•	POM is a design pattern that creates an object repository for web elements, allowing you to separate the test logic from the elements.
+	7.	How do you handle pop-ups in Selenium?
+	•	Use driver.switch_to.alert() to handle browser pop-ups like alerts, prompts, and confirmation dialogs.
+	8.	What is the difference between findElement() and findElements()?
+	•	findElement() returns a single web element, while findElements() returns a list of web elements.
+	9.	What are implicit and explicit waits in Selenium?
+	•	Implicit wait applies to all elements and waits for a defined time before throwing an exception.
+	•	Explicit wait waits for a specific condition to be true before proceeding.
+	10.	How do you take a screenshot in Selenium?
+	•	Use driver.get_screenshot_as_file("path.png") to capture and save screenshots.
+	11.	What is the WebDriverWait class used for?
+	•	WebDriverWait is used for explicit waits, waiting for certain conditions to be met before continuing.
+	12.	How do you handle frames in Selenium?
+	•	Use driver.switch_to.frame(frame_name_or_id) to switch to a frame and driver.switch_to.default_content() to return to the main content.
+	13.	How do you select a value from a dropdown in Selenium?
+	•	Use the Select class to interact with dropdowns and methods like select_by_value(), select_by_index(), and select_by_visible_text().
+	14.	What is StaleElementReferenceException?
+	•	This exception occurs when the referenced web element is no longer attached to the DOM (e.g., after page refresh).
+	15.	How do you perform drag and drop actions in Selenium?
+	•	Use ActionChains to perform drag-and-drop: action.drag_and_drop(source, target).perform().
+	16.	What are the disadvantages of Selenium?
+	•	Cannot automate desktop applications, lacks built-in reporting, limited handling of CAPTCHA, and requires third-party integrations for test management.
+	17.	What is the difference between assert and verify in Selenium?
+	•	Assert will halt the execution of the test case if the assertion fails, while verify will continue execution even if the condition is false.
+	18.	How do you handle SSL certificate errors in Selenium?
+	•	Use browser-specific options, such as chrome_options.add_argument("--ignore-certificate-errors").
+	19.	How do you handle file uploads in Selenium?
+	•	Use send_keys(file_path) to upload files by directly interacting with the file input element.
+	20.	What are the advantages of using Selenium for automation?
+	•	Free and open-source, supports multiple programming languages, platforms, browsers, and integrates well with CI/CD pipelines.
+
+21-40: Selenium WebDriver Questions
+
+	21.	What is webdriver.Chrome()?
+	•	It is used to instantiate a Chrome browser and control it using WebDriver.
+	22.	What is driver.quit()?
+	•	driver.quit() closes all browser windows and terminates the WebDriver session.
+	23.	What is driver.close()?
+	•	driver.close() closes the current browser window that the WebDriver is controlling.
+	24.	What is the use of JavaScriptExecutor in Selenium?
+	•	JavaScriptExecutor is used to execute JavaScript code within the browser, for example, scrolling or clicking elements that are not directly interactable.
+	25.	What is Actions class in Selenium?
+	•	Actions is used to handle complex user interactions like hover, drag and drop, double-click, and right-click.
+	26.	How do you maximize the browser window in Selenium?
+	•	Use driver.maximize_window() to maximize the window.
+	27.	How do you scroll a webpage in Selenium?
+	•	Use JavaScriptExecutor with driver.execute_script("window.scrollBy(0, 1000);") to scroll vertically.
+	28.	How do you run Selenium WebDriver tests in headless mode?
+	•	Use chrome_options.headless = True to run Chrome or Firefox without a graphical user interface.
+	29.	How do you handle dynamic web elements in Selenium?
+	•	Use dynamic locators such as XPath or CSS selectors that rely on attributes like contains() or starts-with().
+	30.	How do you switch between multiple browser windows in Selenium?
+	•	Use driver.switch_to.window(window_handle) to switch between different open windows.
+	31.	What is the difference between XPath and CSS selectors?
+	•	XPath can traverse both forward and backward in the DOM, while CSS selectors can only traverse forward and are usually faster.
+	32.	How do you handle dropdowns that are not select elements in Selenium?
+	•	Use click() to open the dropdown, then select options by XPath or CSS selectors.
+	33.	How do you interact with checkboxes in Selenium?
+	•	Use click() to check/uncheck, and is_selected() to check the checkbox state.
+	34.	What is NoSuchElementException?
+	•	This exception is thrown when the element cannot be found on the web page.
+	35.	What is ElementNotVisibleException?
+	•	Thrown when an element is present in the DOM but not visible on the screen.
+	36.	What is TimeoutException?
+	•	This exception occurs when a command does not complete in the given time.
+	37.	What is InvalidElementStateException?
+	•	Thrown when an element is in a state that prevents interaction, for example, trying to type into a read-only input.
+	38.	What is MoveTargetOutOfBoundsException?
+	•	Thrown when trying to move to an element that is not visible in the viewport.
+	39.	How do you capture tooltips in Selenium?
+	•	Use get_attribute('title') to capture the tooltip text.
+	40.	How do you handle authentication pop-ups in Selenium?
+	•	Pass credentials in the URL as http://username:password@site.com.
+
+41-60: Selenium Waits and Synchronization
+
+	41.	What are waits in Selenium?
+	•	Waits help synchronize the test execution with the web page’s state by waiting for elements to appear, disappear, or become interactable.
+	42.	What is an implicit wait in Selenium?
+	•	Implicit wait tells WebDriver to wait for a specific amount of time before throwing a NoSuchElementException.
+	43.	What is an explicit wait in Selenium?
+	•	Explicit wait allows you to wait for specific conditions to be true before proceeding with the execution.
+	44.	How do you set implicit wait in Selenium?
+	•	Use driver.implicitly_wait(time_in_seconds).
+	45.	What is Fluent Wait in Selenium?
+	•	Fluent wait defines the maximum amount of time to wait for a condition and also specifies how often to check the condition.
+	46.	What is polling frequency in Fluent Wait?
+	•	Polling frequency defines how frequently the condition is checked within the specified wait time.
+	47.	What is the default timeout for an implicit wait?
+	•	The default timeout is 0, meaning no wait. You must explicitly set the time if needed.
+	48.	What is the difference between implicit and explicit wait?
+	•	Implicit wait applies globally to all elements, while explicit wait applies only to the specific elements or conditions.
+	49.	How do you handle AJAX elements in Selenium?
+	•	Use explicit waits to wait for the element to load or become visible before interacting with it.
+	50.	How do you wait for an element to be clickable in Selenium?
+	•	Use WebDriverWait(driver, timeout).until(EC.element_to_be_clickable((By.ID, 'element_id')))
+	51.	How do you handle timeouts in Selenium?
+	•	Use set_page_load_timeout() to set how long WebDriver should wait for a page to load before throwing an error.
+	52.	What is ExpectedConditions in Selenium?
+	•	A collection of conditions that can be used to explicitly wait for elements or states, like visibility, clickability, etc.
+	53.	How do you wait for an element to be visible?
+	•	Use WebDriverWait(driver, timeout).until(EC.visibility_of_element_located((By.ID, 'element_id')))
+	54.	How do you deal with slow-loading pages in Selenium?
+	•	Use driver.set_page_load_timeout() to define how long WebDriver should wait for the page to load.
+	55.	How do you wait for text to be present in an element in Selenium?
+	•	Use WebDriverWait(driver, timeout).until(EC.text_to_be_present_in_element((By.ID, 'element_id'), 'expected_text')).
+	56.	How do you wait for an alert in Selenium?
+	•	Use WebDriverWait(driver, timeout).until(EC.alert_is_present()) to wait for an alert.
+	57.	What is ignored_exceptions in WebDriverWait?
+	•	It allows you to specify exceptions that WebDriver should ignore while waiting for a condition.
+	58.	How do you wait for an element to disappear in Selenium?
+	•	Use WebDriverWait(driver, timeout).until(EC.invisibility_of_element((By.ID, 'element_id')))
+	59.	What is the difference between wait.until() and wait.until_not()?
+	•	until() waits for a condition to be true, while until_not() waits for a condition to become false.
+	60.	How do you wait for an element to be enabled in Selenium?
+	•	Use WebDriverWait(driver, timeout).until(EC.element_to_be_clickable((By.ID, 'element_id'))) to wait until the element is enabled.
+
+61-80: Selenium Grid and Cross-Browser Testing
+
+	61.	What is Selenium Grid?
+	•	Selenium Grid allows running tests on multiple machines and browsers simultaneously by distributing test cases across different environments.
+	62.	What is the difference between Selenium Grid Hub and Node?
+	•	Hub is the central point that receives test requests, while Nodes are the machines where the actual tests are executed.
+	63.	How do you perform cross-browser testing in Selenium?
+	•	Use different WebDrivers like ChromeDriver, FirefoxDriver, EdgeDriver, etc., to test across browsers.
+	64.	How do you set up Selenium Grid?
+	•	Set up a Hub using java -jar selenium-server-standalone.jar -role hub and set up Nodes with java -jar selenium-server-standalone.jar -role node -hub http://hub_ip:4444/grid/register.
+	65.	What are DesiredCapabilities in Selenium?
+	•	DesiredCapabilities are used to set properties like browser name, version, platform, etc., to define the test environment.
+	66.	What is RemoteWebDriver in Selenium?
+	•	RemoteWebDriver is used to execute tests on remote machines using Selenium Grid.
+	67.	How do you handle browser compatibility issues in Selenium?
+	•	By writing cross-browser compatible scripts and running them on multiple browsers to identify and fix issues.
+	68.	How do you run tests on mobile devices using Selenium?
+	•	Use Appium, which is built on top of Selenium, to automate tests on mobile devices.
+	69.	What are some challenges with Selenium Grid?
+	•	Setting up and managing multiple nodes, ensuring browser compatibility, network latency, and debugging remote failures.
+	70.	How do you run tests in parallel using Selenium?
+	•	Use tools like TestNG or JUnit to configure parallel execution or use Selenium Grid to distribute tests across multiple nodes.
+	71.	What is the role of Hub in Selenium Grid?
+	•	The Hub acts as a server that manages test execution and assigns them to Nodes for execution.
+	72.	What is the role of Node in Selenium Grid?
+	•	The Node is the machine where the actual tests are executed. Nodes can be different browsers or platforms.
+	73.	How do you execute tests on a remote machine using Selenium?
+	•	Use RemoteWebDriver and pass the Hub URL along with DesiredCapabilities to run tests on remote machines.
+	74.	How do you manage browser versions with Selenium?
+	•	Use DesiredCapabilities to specify the browser version, or manually download the appropriate WebDriver for the browser.
+	75.	What is BrowserStack?
+	•	BrowserStack is a cloud-based cross-browser testing tool that allows you to test web and mobile applications on real devices and browsers.
+	76.	What is Sauce Labs?
+	•	Sauce Labs is another cloud-based platform that offers cross-browser testing on real devices and browsers, similar to Selenium Grid.
+	77.	How do you handle different screen resolutions in Selenium?
+	•	Use driver.set_window_size(width, height) to set the window to the desired resolution.
+	78.	How do you run Selenium tests on Docker containers?
+	•	Use the Selenium Docker images to run tests in isolated containers, allowing easy scaling and parallel test execution.
+	79.	What is the purpose of grid-extras?
+	•	Selenium Grid Extras is a project that helps you manage Selenium Grid by providing features like restarting nodes, capturing videos, and updating WebDrivers.
+	80.	How do you run headless browsers in Selenium Grid?
+	•	Configure the Node with headless browsers like headless Chrome or headless Firefox and use the corresponding WebDriver options.
+
+81-100: Miscellaneous Selenium Topics
+
+	81.	What is TestNG?
+	•	TestNG is a testing framework inspired by JUnit and NUnit, which is used to configure and manage Selenium tests, providing features like annotations, parallel execution, and reporting.
+	82.	What is the use of @DataProvider in TestNG?
+	•	@DataProvider is used to pass multiple sets of data to a test method, supporting data-driven testing.
+	83.	How do you retry failed test cases in TestNG?
+	•	Use the IRetryAnalyzer interface in TestNG to automatically retry failed tests.
+	84.	How do you generate reports in TestNG?
+	•	TestNG generates default HTML and XML reports. You can also customize reports using IReporter and ITestListener.
+	85.	How do you group test cases in TestNG?
+	•	Use the @Test(groups = {"group1"}) annotation to group tests and run them selectively.
+	86.	What are test suites in TestNG?
+	•	A test suite is a collection of test cases that can be executed together, defined in an XML file.
+	87.	How do you skip test cases in TestNG?
+	•	Use @Test(enabled = false) to skip specific test cases.
+	88.	How do you run a test case multiple times in TestNG?
+	•	Use @Test(invocationCount = x) to run a test multiple times.
+	89.	What is SoftAssert in TestNG?
+	•	SoftAssert allows multiple assertions within a test case, where the test doesn’t stop on failure but continues to execute other assertions.
+	90.	What is JUnit?
+	•	JUnit is a popular testing framework for Java, used to write and execute test cases in Java-based applications.
+	91.	How do you integrate Selenium with Jenkins?
+	•	Install Jenkins, create a job, and configure the build with your Selenium test scripts. Jenkins can run tests automatically on code changes, on a schedule, or via a trigger.
+	92.	What are CI/CD pipelines in Selenium?
+	•	CI/CD pipelines automate the process of building, testing, and deploying code. Selenium tests can be integrated into the pipeline to ensure applications are working as expected before deployment.
+	93.	How do you capture logs in Selenium?
+	•	Use driver.get_log('browser') to capture browser logs, or configure logging using java.util.logging in Java or logging in Python.
+	94.	What is the purpose of DesiredCapabilities?
+	•	DesiredCapabilities helps define properties of the environment where the tests will run, like browser type, version, platform, etc.
+	95.	How do you handle browser zoom level in Selenium?
+	•	Use JavaScript to adjust the zoom level: driver.execute_script("document.body.style.zoom='90%'").
+	96.	What is browser.navigate().to() in Selenium?
+	•	This command is used to navigate to a specific URL, similar to driver.get() but with additional browser history handling.
+	97.	How do you deal with multi-select dropdowns in Selenium?
+	•	Use the Select class and is_multiple() to check if the dropdown supports multiple selection, then use select_by_index() or similar methods.
+	98.	How do you run Selenium tests in incognito mode?
+	•	Use browser-specific options like chrome_options.add_argument("--incognito") for Chrome.
+	99.	How do you stop loading a webpage in Selenium?
+	•	Use JavaScript to stop page loading: driver.execute_script("window.stop();").
+	100.	How do you handle CAPTCHA in Selenium?
+- CAPTCHA is designed to prevent automation, so handling CAPTCHA usually requires third-party services or manual intervention.
